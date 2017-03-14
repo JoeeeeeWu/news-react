@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import {Row, Col} from 'antd';
+import {Row, Col, BackTop} from 'antd';
+import PCHeader from './pc_header';
+import PCFooter from './pc_footer';
+import PCNewsImageBlock from './pc_news_image_block';
 
 class PCNewsDetails extends Component {
     constructor(props){
@@ -30,6 +33,7 @@ class PCNewsDetails extends Component {
     render() {
         return (
             <div>
+                <PCHeader/>
                 <Row>
                     <Col span={2}></Col>
                     <Col span={14} className='container'>
@@ -37,9 +41,13 @@ class PCNewsDetails extends Component {
 
                         </div>
                     </Col>
-                    <Col span={6}></Col>
+                    <Col span={6}>
+                        <PCNewsImageBlock count={40} type='top' width='100%' cardTitle='相关新闻' imageWidth='130px'/>
+                    </Col>
                     <Col span={2}></Col>
                 </Row>
+                <PCFooter/>
+                <BackTop/>
             </div>
         );
     }

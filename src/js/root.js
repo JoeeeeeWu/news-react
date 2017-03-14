@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import {Router, Route, hashHistory} from 'react-router';
 import PCIndex from './components/pc_index';
+import PCNewsDetails from './components/pc_news_details';
 import MobileIndex from './components/mobile_index';
+import MobileNewsDetails from './components/mobile_news_details';
 import MediaQuery from 'react-responsive';
 
 class Root extends Component {
@@ -9,10 +12,16 @@ class Root extends Component {
         return (
             <div>
                 <MediaQuery query='(min-device-width: 1224px)'>
-                    <PCIndex/>
+                    <Router history={hashHistory}>
+                        <Route path='/' component={PCIndex}/>
+                        <Route path='/details/:uniquekey' component={PCNewsDetails}/>
+                    </Router>
                 </MediaQuery>
                 <MediaQuery query='(max-device-width: 1224px)'>
-                    <MobileIndex/>
+                    <Router history={hashHistory}>
+                        <Route path='/' component={MobileIndex}/>
+                        <Route path='/details/:uniquekey' component={MobileNewsDetails}/>
+                    </Router>
                 </MediaQuery>
             </div>
         );

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, BackTop } from 'antd';
 import MobileHeader from './mobile_header';
 import MobileFooter from './mobile_footer';
+import CommonComment from './common_comments';
 
 class MobileNewsDetails extends Component {
     constructor(props) {
@@ -36,9 +37,9 @@ class MobileNewsDetails extends Component {
                 <div className="ucmobileList">
                     <Row>
                         <Col span={24} className='container'>
-                            <div className="articleContainer" dangerouslySetInnerHTML={this.createMarkup()}>
-
-                            </div>
+                            <div className="articleContainer" dangerouslySetInnerHTML={this.createMarkup()}></div>
+                            <hr/>
+                            <CommonComment uniquekey={this.props.params.uniquekey}/>
                         </Col>
                     </Row>
                 </div>
